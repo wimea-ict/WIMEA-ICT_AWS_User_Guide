@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+
+<list category = "images">
+
+  
+  <image src = "images/SinkNode.png"  thumby = "sink_mote"  caption = "RSS2 Mote" main-component = "true"/>
+  <image src = "images/jumperW.png"  thumby = "jumperW"  caption = "Jumper wire" main-component = "true"/>
+
+  <image src = "images/LpgBoard.png" thumby = "lpg_board" caption = "LPG Board" main-component = "false"/>
+  <image src = "images/electron.png" thumby = "modem" caption = "Electron Modem" main-component = "false"/>
+  <image src = "images/antena.png" thumby = "antena" caption = "Antena" main-component = "false"/>
+  <image src = "images/DS 3231RTC.png" thumby = "rtc_module" caption = "DS3231 RTC" main-component = "false"/>
+  <image src = "images/sdcardMod.png" thumby = "sd_card_module" caption = "SdCard Module" main-component = "false"/>
+  <image src = "images/sdCard.png" thumby = "sd_card" caption = "SD Card" main-component = "false"/>
+  <image src = "images/lpgBattery.png" thumby = "lpg_battery" caption = "LPG Battery" main-component = "false"/>
+  <image src = "images/f2fjwire.png" thumby = "f2f" caption = "Female to female" main-component = "false"/>
+  <image src = "images/jwires.png" thumby = "f2f" caption = "Jumper wires" main-component = "false"/>
+  <image src = "images/tp4056 module.png" thumby = "f2f" caption = "TP4056" main-component = "false"/>
+  <image src = "images/solar panel 0.png" thumby = "solar panel" caption = "Solar Panel" main-component = "false"/>
+
+
+</list>

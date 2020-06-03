@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Soil Moisture Sensor</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">soil_moisture_sensor.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Measure the volumetric water content of soil. This makes it ideal for performing experiments in courses such as soil science</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="rh_callibration">Fully Callibrated with 1.8% RH accuracy</property>
+		<property title="i2c">Digital output with I2C interface</property>
+		<property title="power">Low power consumption</property>
+		<property title="durability">Excellent long term stability</property>
+		<property title="reflow">DFN type package - reflow solderable.</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Soil moisture sensors measure the volumetric water content in soil.[1] Since the direct gravimetric measurement of free soil moisture requires removing, drying, and weighing of a sample, soil moisture sensors measure the volumetric water content indirectly by using some other property of the soil, such as electrical resistance, dielectric constant, or interaction with neutrons, as a proxy for the moisture content.
+
+The relation between the measured property and soil moisture must be calibrated and may vary depending on environmental factors such as soil type, temperature, or electric conductivity. Reflected microwave radiation is affected by the soil moisture and is used for remote sensing in hydrology and agriculture. Portable probe instruments can be used by farmers or gardeners.
+
+Soil moisture sensors typically refer to sensors that estimate volumetric water content. Another class of sensors measure another property of moisture in soils called water potential; these sensors are usually referred to as soil water potential sensors and include tensiometers and gypsum blocks.
+
+
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://en.wikipedia.org/wiki/Soil_moisture_sensor</link>
+	
+</component>

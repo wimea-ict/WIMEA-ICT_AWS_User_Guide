@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../js/zipi.js"></script>
+    <title>Title</title>
+
+</head>
+<body>
+<div id="elemt">
+
+</div>
+<div >
+    <button type="button" id="play" class="btn"><i class="fas fa-play"></i></button>
+    <button type="button" id="stop" class="btn"><i class="fas fa-stop"></i></button>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var p = new A("elemt", [{src:'../images/S2-PCB-front clear.png', stopPosition:600, width:"200px", height:"200px", speed:8000, startAfter:0},
+            {src:'../images/Li-ion capacitor2 clear.png', stopPosition:200,width:"200px", height:"200px", speed:5000, startAfter:8000}]);
+        p.load();
+        $("#play").click(function(){
+            if ($("#play i").attr("class")==="fas fa-play"){
+                $("#play i").attr("class","fas fa-pause");
+                p.play();
+            }else{
+                $("#play i").attr("class","fas fa-play");
+                p.pause();
+            }
+            });
+
+
+        $("#stop").click(function(){
+            p.stop();
+            $("#play i").attr("class","fas fa-play");
+        });
+
+    });
+</script>
+
+</body>
+</html>

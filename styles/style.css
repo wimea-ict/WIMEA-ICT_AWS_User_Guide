@@ -1,0 +1,334 @@
+body{
+  background-image: url('../images/bg.png');
+
+}
+
+#div1{
+  position:absolute;
+  background-color:blue;
+   width:100px;
+    height: 200px;
+    top: 200px;
+    left: 100px;
+}
+#div2{
+  position:absolute;
+   background-color:red;
+    width:100px; height:200px;
+    top: 300px;
+    left: 300px;
+}
+#divx{
+  width: 300px;
+  height: 400px;
+  border: 2px solid green;
+  margin-left: 50%
+}
+nav{
+  display: flex;
+   background-color: DodgerBlue;
+
+}
+.push{
+  display: flex;
+}
+.line{
+  align-self: flex-start;
+}
+.push-right{
+  align-self: flex-end;
+}
+
+.flex-container > a {
+  text-decoration: none;
+
+}
+.auto{
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+.auto:hover{
+  transform: scale(1.1);
+  outline-style: solid;
+  outline-width: medium;
+  outline-color: blue;
+  background-color: #f1c1c4;
+}
+.pic{
+  display: flex;
+  justify-content: center;
+}
+.haras{
+  background-color: DodgerBlue;
+}
+.dash{
+  overflow-y: scroll;
+  background-color: white;
+}
+.canva{
+  position:relative;
+  background-color: white;
+}
+
+.menux{
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  margin-top: -42%;
+  display: none;
+}
+.home{
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+#dashItems{
+  display: flex;
+  flex-direction: column;
+}
+.foot{
+  backgrond-color: white;
+  margin-bottom: 0px;
+  padding: 10px;
+
+}
+.yip{
+  margin-left: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.m{
+  font-size: 20px;
+  padding-left: 20px;
+
+}
+.activeNow{
+  border: 3px solid dodgerblue;
+  border-radius: 5px;
+}
+.lastActive{
+  border: 3px solid yellow;
+  border-radius: 5px;
+}
+.previous{
+  border: 3px solid pink;
+  border-radius: 5px;
+}
+.running{
+  
+}
+.main{
+  border: 1px dashed gray;
+  width: 250px;
+  height: 300px;
+  margin-left: 35%;
+  margin-top: 8%;
+}
+.i2c{
+  border: 1px dashed white;
+  width: 100px;
+  height: 100px;
+  left: 16%;
+  top: 23%;
+  position: absolute;
+}
+.temp{
+    border: 1px dashed white;
+    width: 100px;
+    height: 100px;
+    left: 4%;
+    top: 23%;
+    position: absolute;
+}
+/*    the starting point for 2m node page    */
+.main_2m{
+  border: 1px dashed white;
+  width: 200px;
+  height: 250px;
+  left: 28%;
+  margin-top: 2%;
+  position: absolute;
+  overflow: visible;
+
+}
+.touched{
+  border:4px dashed green;
+}
+.untouched{
+  border:1px dashed grey;
+}
+.beat{
+  border: 1px solid gray;
+}
+.batery{
+  border: 1px dashed white;
+  width: 100px;
+  height: 100px;
+  left: 38%;
+  top: 45%;
+  position:absolute;
+}
+.boost{
+  border: 1px dashed white;
+  width: 100px;
+  height: 100px;
+  top: 63%;
+  left: 38%;
+  position: absolute;
+}
+.panel{
+    position: absolute;
+    border: 1px dashed white;
+    width: 100px;
+    height: 100px;
+    left: 38%;
+    top: 81%;
+}
+.dragie{
+  color: green;
+}
+.empti{
+  border: 1px dashed red;
+}
+.pointed{
+  border: 3px dashed purple;
+}
+.defaulty{
+  border: 1px dashed gray;
+}
+.awosome{
+  border: 4px dashed green;
+}
+.wrongie{
+  border: 4px dashed red;
+}
+.owk{
+  width: 30%;
+  position: absolute;
+  left: 65%;
+  top:  50%;
+  display: none;
+}
+.poor{
+  color: red;
+}
+.good{
+  color: green;
+}
+.contx{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+}
+.wrappie{
+  display: flex;
+  flex-direction: column;
+}
+#draggable{
+    width: 150px;
+    height: 150px;
+    padding: 0.5em;
+    border: 2px solid red;
+    display: none;
+}
+.dull{
+  border: 2px solid yellow;
+}
+.buttons{
+  position: absolute;
+  top: 87%;
+  left: 83%;
+}
+
+#img{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+#img1{
+    position: absolute;
+    top: 100px;
+    left: 20;
+}
+#img2{
+    position: absolute;
+    top: 160;
+    left: 20;
+}
+#img3{
+    background-color: red;
+    position: absolute;
+    top: 550;
+    left: 950;
+}
+#line{
+    position: absolute;
+    width: 1px;
+    background-color: red;
+}
+.arrow{
+  stroke:rgb(0,0,0);
+  stroke-width:2;
+  marker-end:url(#markerArrow);
+}
+.wire{
+  border: 1px solid black;
+  width: 30px;
+  position: absolute;
+  top: 4%;
+  cursor: grab;
+}
+.raingauge{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 18%;
+  top: 4%;
+  position: absolute;
+}
+.pressure{
+    border: 1px dashed gray;
+    width: 100px;
+    height: 100px;
+    left: 18%;
+    top: 25%;
+    position: absolute;
+}
+.soil_temp{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 25%;
+  top: 45%;
+  position:absolute;
+}
+.soil_moist{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 47%;
+  top: 23%;
+  position:absolute;
+}
+/* automatic sytle */
+#rss2_auto, #i2c_auto, #sht25_auto, #battery_auto, #boost_auto{
+  position: absolute;
+}
+
+#solar_panel{
+  position: absolute;
+}
+
+.work{
+  max-height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+}
+
+

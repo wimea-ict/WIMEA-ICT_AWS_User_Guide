@@ -1,0 +1,332 @@
+
+
+<div class="col-md-10 canvas"></div>
+
+<!-- this link includes the pause and resume functionalities -->
+<script src="./js/pauseresume.js"></script>
+
+<script type = "text/javascript">
+    //var whole = $("#whole");
+    var playing = false;
+    //var twoMeterAudio = new sound("./audios/final_2mNode.mp3"); // create the audio object
+    
+$(document).ready(function(){
+
+    $( "#play" ).on('click',function(el) {
+        var board_position;
+        var battery;
+        var boost_position;
+        var panel_position;
+        var soiltemp_position;
+        var soilmoist_position;
+        var gauge ;
+        el.stopImmediatePropagation();
+            //twoMeterAudio.play();// play the audio
+
+            
+        if ($("#play i").attr("class")==="fas fa-play"){
+            $("#play i").attr("class","fas fa-pause");
+                
+            if (playing===false){
+
+                $(".canvas").append("<img id = 'sinkNode_lpg' src = 'images/S2-PCB-front clear.png'  style='position:absolute'  width = '200' height = '250'>");
+                var a = $( "#sinkNode_lpg");                                        
+                 board_position = $("#sinkNode_lpg").offset();
+                
+                $( "#sinkNode_lpg" ).delay(5000).animate({// wait for 18 seconds for the description of the mote
+                    left: "410",
+                    top: "0"
+                }, 2000,  function(){
+
+                $(".canvas").append("<img id = 'lithium' src = 'images/Li-ion capacitor2 clear.png' style='position:absolute' width = '70' height = '120'/>");
+                var b = $( "#lithium" );
+                battery = $("#lithium").offset();
+
+                $( "#lithium" ).delay(1000).animate({  // wait for 5 seconds for the decsription of the sht25
+                left: "500",
+                top: "270"
+                }, 4500, function(){
+                        var rss2X = board_position.left+530;
+                        var rss2Y = board_position.top+201;
+
+                        //Coordinates for capacitor
+                        var capX = battery.left+512;
+                        var capY = battery.top+273;
+                        var rssArray = set_cordinates(rss2X, rss2Y);
+                        var capArray = set_cordinates(capX, capY);
+                        connect_images1(rssArray, capArray, "sinkNode_lpg");
+
+                        //line two
+                        var capX2 = battery.left+542;
+                        var capY2 = battery.top+277;
+
+                        //var rssArray = set_cordinates(rss2X, rss2Y);
+                        var capArray2 = set_cordinates(capX2, capY2);
+                        connect_images1(rssArray, capArray2, "sinkNode_lpg");
+                        animateboostConverter();
+                        
+                })
+
+                });
+
+            function animateboostConverter(){
+
+                $(".canvas").append("<img id = 'bc' src = 'images/DC Boost Converter.png' style='position:absolute' width = '100' height = '50'/>");
+                var c = $( "#bc" );
+                
+                boost_position = $("#bc").offset();
+
+                $( "#bc" ).delay(3000).animate({  // wait for 3 second
+                left: "600",
+                top: "270"
+                }, 2500, function(){
+                    // Line one 
+                        var capYboost1 = battery.top+273;
+                        var capXboost1 = battery.left+512;
+                        var capArrayboost1 = set_cordinates(capXboost1, capYboost1);
+
+                        var boostX1boost1 = boost_position.left+610;
+                        var boostY1boost1 = boost_position.top+310;
+                        var boostArray1boost1= set_cordinates(boostX1boost1, boostY1boost1);
+                        connect_images1(capArrayboost1, boostArray1boost1, "bc");
+
+                        //line two
+                        var capX2boost1 = battery.left+541;
+                        var capY2boost1 = battery.top+277;
+                        var capArray2boost1 = set_cordinates(capX2boost1, capY2boost1);
+
+                        var boostX2boost1 = boost_position.left+601;
+                        var boostY2boost1 = boost_position.top+274;
+                        var boostArray2boost1 = set_cordinates(boostX2boost1, boostY2boost1);
+                        connect_images1(capArray2boost1, boostArray2boost1, "bc");
+                })
+                animatesolarpannel();
+               
+            };
+            
+            function animatesolarpannel(){
+
+                
+                $(".canvas").append("<img id = 'sp' src = 'images/solar panel 0.png' style='position:absolute' width = '100' height = '100'/>");
+                var f = $( "#sp" );
+
+                panel_position = $("#sp").offset();
+                $( "#sp" ).delay(20).animate({   // delay for 0.02 seconds
+                left: "800",
+                top: "300"
+                }, 2000, function(){
+                    
+                    var boostX1p = boost_position.left+685;
+                    var boostY1p= boost_position.top+315;
+                    var boostArray1p = set_cordinates(boostX1p, boostY1p);
+
+                    var panelX1p = panel_position.left+813;
+                    var panelY1p = panel_position.top + 400;
+                    var panelArray1p = set_cordinates(panelX1p, panelY1p);
+                    connect_images1(boostArray1p,panelArray1p, "bc");
+
+                    //line two
+                    var capX2p = panel_position.left+680;
+                    var capY2p= panel_position.top+281;
+                    var capArray2p = set_cordinates(capX2p, capY2p);
+
+                    var boostX2p = boost_position.left+820;
+                    var boostY2p = boost_position.top+400;
+                    var boostArray2p = set_cordinates(boostX2p, boostY2p);
+                    connect_images1(capArray2p, boostArray2p, "bc");
+                })
+                animateRainGuage();
+                
+            };
+
+            function animateRainGuage(){
+  
+                $(".canvas").append("<img id = 'rg' src = 'images/raingauge.png' style='position:absolute' width = '100' height = '150'/>");
+                var f = $( "#rg" );
+
+                gauge = $("rg").offset();
+                $( "#rg" ).delay(4000).animate({   // delay for 0.02 seconds
+                left: "180",
+                top: "0"
+                }, 3000, function(){
+                    //Line one 
+                        var rss2Xrain = board_position.left+440;
+                        var rss2Yrain= board_position.top+159;
+
+                        var capXrain = gauge.left+302;
+                        var capYrain = gauge.top+106;
+                        var rssArrayrain = set_cordinates(rss2Xrain, rss2Yrain);
+                        var capArrayrain = set_cordinates(capXrain, capYrain);
+                        connect_images1(rssArrayrain, capArrayrain, "sinkNode_lpg");
+
+                        //line two
+                        var capX2rain = gauge.left+308;
+                        var capY2rain = gauge.top+104;
+                        var rss2Xa2rain = board_position.left+461;
+                        var rss2Ya2rain= board_position.top+157;
+
+                        var rssArray2arain = set_cordinates(rss2Xa2rain, rss2Ya2rain);
+                        var capArray2arain = set_cordinates(capX2arain, capY2arain);
+                        connect_images1(rssArray2arain, capArray2arain, "sinkNode_lpg");
+                });
+
+                soiltemp();
+
+            };
+
+            function soiltemp(){
+                
+                $(".canvas").append("<img id = 'st' src = 'images/temperature sensor.png' style='position:absolute' width = '100' height = '150'/>");
+                var d = $( "#st" );
+                
+                soiltemp_position = $("#st").offset();
+
+                $( "#st" ).delay(5000).animate({  // wait for 1 second
+                    left: "400",
+                top: "290"
+                }, 4000,function(){
+                        var rss2Xs = board_position.left+466;
+                        var rss2Ys= board_position.top+242;
+
+                        var capXs = soiltemp_position.left+436;
+                        var capYs = soiltemp_position.top+308;
+                        var rssArrays = set_cordinates(rss2Xs, rss2Ys);
+                        var capArrays = set_cordinates(capXs, capYs);
+                        connect_images1(rssArrays, capArrays, "sinkNode_lpg");
+
+                        //line two
+                        var capX2s = soiltemp_position.left+440;
+                        var capY2s = soiltemp_position.top+308;
+                        var rss2Xs2 = board_position.left+472;
+                        var rss2Ys2= board_position.top+242;
+
+                        var rssArray2s = set_cordinates(rss2Xs2, rss2Ys2);
+                        var capArray2s = set_cordinates(capX2s, capY2s);
+                        connect_images1(rssArray2s, capArray2s, "sinkNode_lpg");
+
+                        //line three
+                        var capX3s = soiltemp_position.left+445;
+                        var capY3s = soiltemp_position.top+308;
+                        var rss3Xs2 = board_position.left+481;
+                        var rss3Ys2= board_position.top+242;
+
+                        var rssArray3s = set_cordinates(rss3Xs2, rss3Ys2);
+                        var capArray3s = set_cordinates(capX3s, capY3s);
+                        connect_images1(rssArray3s, capArray3s, "sinkNode_lpg");
+                        
+                });
+                soilmoist();
+                
+                };
+
+
+            function soilmoist(){
+                $(".canvas").append("<img id = 'sm' src = 'images/moisture sensor.png' style='position:absolute' width = '100' height = '150'/>");
+                var e = $( "#sm" ); 
+                
+                soilmoist_position = $("#sm").offset();  
+
+                $( "#sm" ).delay(6000).animate({  // wait for 3 seconds
+                left: "600",
+                top: "0"
+                }, 2500,function(){
+                    //Line one 
+                        var rss2Xm = board_position.left+543;
+                        var rss2Ym= board_position.top+157;
+
+                        var capXm = soilmoist_position.left+640;
+                        var capYm = soilmoist_position.top+116;
+                        var rssArraym = set_cordinates(rss2Xm, rss2Ym);
+                        var capArraym = set_cordinates(capXm, capYm);
+                        connect_images1(rssArraym, capArraym, "sinkNode_lpg");
+
+                        //line two
+                        var capX2m = soilmoist_position.left+555;
+                        var capY2m = soilmoist_position.top+157;
+                        var rss2Xm2 = board_position.left+646;
+                        var rss2Ym2= board_position.top+118;
+
+                        var rssArray2m = set_cordinates(rss2Xm2, rss2Ym2);
+                        var capArray2m = set_cordinates(capX2m, capY2m);
+                        connect_images1(rssArray2m, capArray2m, "sinkNode_lpg");
+
+                        //line three
+                        var capX3m = soilmoist_position.left+564;
+                        var capY3m = soilmoist_position.top+157;
+                        var rss3Xm2 = board_position.left+655;
+                        var rss3Ym2= board_position.top+119;
+
+                        var rssArray3m = set_cordinates(rss3Xm2, rss3Ym2);
+                        var capArray3m = set_cordinates(capX3m, capY3m);
+                       connect_images1(rssArray3m, capArray3m, "sinkNode_lpg");
+
+                       //Line four 
+                        var rss4Xm = board_position.left+560;
+                        var rss4Ym= board_position.top+191;
+
+                        var cap4m = soilmoist_position.left+650;
+                        var cap4ym = soilmoist_position.top+125;
+                        var rssArray4m = set_cordinates(rss4Xm, rss4Ym);
+                        var capArray4m = set_cordinates(cap4m, cap4ym);
+                        connect_images1(rssArray4m, capArray4m, "sinkNode_lpg");
+                });
+
+                
+            };
+             
+            playing=true;
+
+            //pause function                
+        }else{
+            var a = $( "#sinkNode_lpg" ).resume();
+            var b = $("#lithium").resume();
+            var c = $("#bc").resume();
+            var d = $("#st").resume();      
+            var e = $("#sm").resume();
+            var f = $("#sp").resume();
+            var g = $("#rg").resume();
+            }
+
+        }else{
+
+            $("#play i").attr("class","fas fa-play");
+            //twoMeterAudio.pause();
+            var a = $("#sinkNode_lpg" ).pause();
+            var b = $("#lithium").pause();
+            var c = $("#bc").pause();
+            var d = $("#st").pause();       
+            var e = $("#sm").pause();                  
+            var f = $("#sp").pause(); 
+            var g = $("#rg").pause();                
+            }
+            
+            
+        });
+    
+        //stop function
+        $("#stop").click(function(){
+
+            $("#sinkNode_lpg" ).stop(true);
+            $("#lithium").stop(true);
+            $("#bc").stop(true);
+            $("#st").stop(true);
+            $("#sm").stop(true);
+            $("#sp").stop(true);
+            $("#rg").stop(true);
+           
+            playing = false;
+            //twoMeterAudio.stop();
+            
+            $(".canvas").empty();
+            $(".canva").empty().append($("<div class='col-md-10 canvas'/>"));
+
+            //change pause icon to play icon on stop
+            $("#play i").attr("class","fas fa-play");
+
+        });
+
+
+    });
+
+            
+</script>
